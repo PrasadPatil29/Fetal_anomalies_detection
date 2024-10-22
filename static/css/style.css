@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --blue: #0071FF;
+    --light-blue: #B6DBF6;
+    --dark-blue: #005DD1;
+    --grey: #f2f2f2;
+    --error-red: #ff4d4d;
+    --error-bg: rgba(255, 77, 77, 0.1);
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('/static/images/background.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.container {
+    max-width: 400px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.img-area {
+    position: relative;
+    width: 100%;
+    height: 240px;
+    background: var(--grey);
+    margin-bottom: 20px;
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.upload-icon {
+    width: 100px;
+    height: 100px;
+}
+
+.img-area h3 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 10px;
+    color: var(--blue);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-text {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    border-radius: 15px;
+    background: white;
+    color: black;
+    font-weight: 500;
+    font-size: 16px;
+    border: 2px solid var(--blue);
+    margin-bottom: 5px; /* Reduced vertical spacing */
+    text-align: center;
+}
+
+.select-image,
+.input {
+    display: block;
+    width: 100%;
+    padding: 16px 0;
+    border-radius: 15px;
+    background: var(--blue);
+    color: #fff;
+    font-weight: 500;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-bottom: 5px; /* Reduced vertical spacing */
+    text-align: center;
+    line-height: normal; /* Center text vertically */
+}
+
+.select-image:hover,
+.input:hover {
+    background: var(--dark-blue);
+}
+
+/* Align the text inside the input file button to center */
+input[type="file"]::file-selector-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.input:hover {
+    background: var(--dark-blue);
+}
+
+/* Alert message styles */
+.alert {
+    display: none;
+    padding: 10px 20px;
+    margin-bottom: 15px;
+    border: 1px solid var(--error-red);
+    background-color: var(--error-bg);
+    color: var(--error-red);
+    border-radius: 5px;
+    text-align: center;
+    font-weight: 500;
+    position: relative;
+}
+
+.alert:before {
+    content: '!';
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 20px;
+    height: 20px;
+    background: var(--error-red);
+    color: white;
+    font-size: 14px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.alert.visible {
+    display: block;
+}
+
+/* Prediction Page Styles */
+.prediction-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('/static/images/background.png') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    text-align: center;
+}
+
+.prediction-container {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.prediction-container h1 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-top: 20px;
+}
+
+.prediction-container h2 {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.prediction-container h3 {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px; /* Reduced vertical spacing */
+    background: var(--blue);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background: var(--dark-blue);
+}

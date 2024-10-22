@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask App</title>
+    <style>
+        /* CSS */
+        .file-input-container {
+            position: relative;
+            width: 100%;
+            margin-bottom: 10px;
+            display: flex; /* Use flexbox */
+            align-items: center; /* Center items vertically */
+        }
+
+        .select-image {
+            position: absolute;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .choose-file {
+            display: inline-block;
+            padding: 16px 0;
+            border-radius: 15px;
+            background: var(--blue);
+            color: #fff;
+            font-weight: 500;
+            font-size: 16px;
+            text-align: center;
+            line-height: normal; /* Center text vertically */
+            cursor: pointer;
+            transition: background 0.3s ease;
+            flex-grow: 1; /* Take remaining space */
+        }
+
+        .choose-file:hover {
+            background: var(--dark-blue);
+        }
+
+        /* Hide the default file input button */
+        input[type="file"] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="img-area"> 
+            <img src="{{ url_for('static', filename='images/Upload_Image.png') }}" class="upload-icon" alt="Upload Icon"/>  
+            <h3>Upload Fetal Brain Ultrasound</h3>
+        </div>
+        <div class="alert" id="alert">Please choose an ultrasound image to upload.</div>
+        <form id="uploadForm" action="prediction" method="POST" enctype="multipart/form-data">
+            <input type="text" name="patient_name" placeholder="Patient Name" class="input-text" required/><br/>
+            <input type="number" name="week_of_fetal" placeholder="Week of Fetal" class="input-text" required/><br/>
+            <div class="file-input-container">
+                <label for="imgInput" class="choose-file">Choose File</label>
+                <input class="select-image" type="file" name="img" id="imgInput"/>
+            </div>
+            <input class="input" type="submit" name="btn" value="Upload Image"/>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('uploadForm').onsubmit = function(event) {
+            var imgInput = document.getElementById('imgInput');
+            if (imgInput.files.length === 0) {
+                event.preventDefault();
+                document.getElementById('alert').classList.add('visible');
+            }
+        };
+    </script>
+    <script>
+    document.getElementById('uploadForm').onsubmit = function(event) {
+        var imgInput = document.getElementById('imgInput');
+        if (imgInput.files.length === 0) {
+            event.preventDefault();
+            document.getElementById('alert').classList.add('visible');
+        }
+    };
+
+    document.getElementById('imgInput').addEventListener('change', function() {
+        var selectedFile = this.files[0];
+        if (selectedFile) {
+            document.getElementById('alert').classList.remove('visible');
+            console.log('File selected:', selectedFile.name);
+        }
+    });
+</script>
+
+</body>
+</html>
