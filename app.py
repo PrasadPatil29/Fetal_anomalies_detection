@@ -31,4 +31,4 @@ def prediction():
     return render_template("prediction.html", data=pred, patient_name=patient_name, week_of_fetal=week_of_fetal)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False,host='0.0.0.0')
